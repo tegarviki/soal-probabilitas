@@ -1,0 +1,75 @@
+---
+title: "R Notebook"
+output: html_notebook
+
+---
+```{r}
+install.packages("ISLR")
+
+
+library(ISLR)
+
+library(lsr)
+
+dataCredit <- Credit
+
+head(dataCredit)
+
+#soal stastistik
+#nomer1
+#median dan mean
+mean(dataCredit$Rating)
+mean(dataCredit$Age)
+mean(dataCredit$Cards)
+median(dataCredit$Rating)
+median(dataCredit$Age)
+median(dataCredit$Cards)
+
+#nomer2
+modeOf(dataCredit$Gender)
+modeOf(dataCredit$Student)
+modeOf(dataCredit$Married)
+
+#nomer3
+quantile(x = dataCredit$Education, probs = 0.1)
+quantile(x = dataCredit$Education, probs = 0.37)
+quantile(x = dataCredit$Education, probs = 0.91)
+
+#nomer4
+quantile(x = dataCredit$Balance, c(0.25, 0.50, 0.75))
+boxplot(dataCredit$Balance, horizontal = TRUE)
+
+#nomer5
+LimitxRating <- data.frame(limit = dataCredit$Limit, rating = dataCredit$Rating)
+LimitxRating
+AgexCards <- data.frame(age = dataCredit$Age, cards = dataCredit$Cards)
+AgexCards
+IncomexEdu <- data.frame(income = dataCredit$Income, education = dataCredit$Education)
+IncomexEdu
+plot(dataCredit$Limit, dataCredit$Rating)
+plot(dataCredit$Age, dataCredit$Cards)
+plot(dataCredit$Income, dataCredit$Education)
+
+#SoalKasus
+#Galang murid SD kelas 3 mengerjakan tugas 10 soal pilihan ganda dengan jumlah opsional 4 yaitu (a,b,c,d) maka temukan kemungkinan memiliki 3 jawaban benar, jika galang menjawab pertanyaan secara acak.
+
+dbinom(3, size=10, prob=1/2)
+
+
+
+
+```
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
